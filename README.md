@@ -38,6 +38,9 @@ This images can be called using the tag $I numberofimage, e.g. $I 0 will
 load the bank 0 first image on the left. E.g. $I 9 will load the 
 bank 3 second image starting from left, etc.
 
+E.g. in the sample game, the tile banks 0,1,2,3 have 4 images of 4x4 tiles (in Pico-8 tile=cell) as
+follows:
+
 ![a](https://raw.githubusercontent.com/Iadvd/Pico8-MultipleChoiceEngine/refs/heads/main/how-to1.png)
 
 ![b](https://raw.githubusercontent.com/Iadvd/Pico8-MultipleChoiceEngine/refs/heads/main/how-to2.png)
