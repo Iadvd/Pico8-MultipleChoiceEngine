@@ -38,13 +38,13 @@ This images can be called using the tag $I numberofimage, e.g. $I 0 will
 load the bank 0 first image on the left. E.g. $I 9 will load the 
 bank 3 second image starting from left, etc.
 
-!how-to1.png
+how-to1.png
 
-!how-to2.png
+how-to2.png
 
-!how-to3.png
+how-to3.png
 
-!how-to4.png
+how-to4.png
 
 Then go to the map screen and put the images as if they were a map, 
 the first 8 images in the top left part of the map, and the
