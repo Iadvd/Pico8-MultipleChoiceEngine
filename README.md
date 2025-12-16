@@ -54,6 +54,12 @@ the first 8 images in the top left part of the map, and the
 rest of the images in the block below the first one. So if you 
 see the map you will see all the images as if they were a map.
 
+E.g. in the sample game, if you go to the map screen, you will see the images written at the map, the first 8 ones in the left-top map position, the following 8 images just below them as follows:
+
+![d](https://raw.githubusercontent.com/Iadvd/Pico8-MultipleChoiceEngine/refs/heads/main/how-to5.png)
+
+![d](https://raw.githubusercontent.com/Iadvd/Pico8-MultipleChoiceEngine/refs/heads/main/how-to6.png)
+
 This is important, because the engine will show the images as
 if they were a block from the map. You just need to make
 the arrangement as explained above, the engine will do the rest.
