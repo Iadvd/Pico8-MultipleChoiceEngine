@@ -1,6 +1,12 @@
 # Pico8-MultipleChoiceEngine
 A small multiple choice interactive fiction engine compatible with Jari Komppa's MuCho ZX Spectrum tag languaje.
 
+You need to know the basics about Pico-8 before using this engine. Starting from zero will be hard. 
+
+Please review this great link for aplenty of Pico-8 resources and manuals:
+
+https://github.com/pico-8/awesome-PICO-8
+
 It includes a complete game: "Blood of Dracula Pico-8 Adventure", you can play it online at this link:
 
 https://furilloproductions.itch.io/blood-of-dracula-pico8-adventure
