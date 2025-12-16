@@ -40,6 +40,12 @@ bank 3 second image starting from left, etc.
 
 ![a](https://raw.githubusercontent.com/Iadvd/Pico8-MultipleChoiceEngine/refs/heads/main/how-to1.png)
 
+![b](https://raw.githubusercontent.com/Iadvd/Pico8-MultipleChoiceEngine/refs/heads/main/how-to2.png)
+
+![c](https://raw.githubusercontent.com/Iadvd/Pico8-MultipleChoiceEngine/refs/heads/main/how-to3.png)
+
+![d](https://raw.githubusercontent.com/Iadvd/Pico8-MultipleChoiceEngine/refs/heads/main/how-to4.png)
+
 Then go to the map screen and put the images as if they were a map, 
 the first 8 images in the top left part of the map, and the
 rest of the images in the block below the first one. So if you 
