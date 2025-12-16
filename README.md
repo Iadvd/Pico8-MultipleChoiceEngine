@@ -38,6 +38,8 @@ This images can be called using the tag $I numberofimage, e.g. $I 0 will
 load the bank 0 first image on the left. E.g. $I 9 will load the 
 bank 3 second image starting from left, etc.
 
+!(https://raw.githubusercontent.com/Iadvd/Pico8-MultipleChoiceEngine/refs/heads/main/how-to1.png)
+
 ![Captura]([https://github.com/tu-usuario/tu-repo/raw/main/images/screenshot.png](https://raw.githubusercontent.com/Iadvd/Pico8-MultipleChoiceEngine/refs/heads/main/how-to1.png))
 
 ![alt text]([https://github.com/Iadvd/RetrocomputingZXSpectrum/blob/master/how-to1.png](https://raw.githubusercontent.com/Iadvd/Pico8-MultipleChoiceEngine/refs/heads/main/how-to1.png))
