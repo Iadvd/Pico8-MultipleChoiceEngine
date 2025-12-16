@@ -3,7 +3,7 @@ A small multiple choice interactive fiction engine compatible with Jari Komppa's
 
 It includes a complete game: "Blood of Dracula Pico-8 Adventure", you can play it online at this link:
 
-[Blood of Dracula at itch.io](https://furilloproductions.itch.io/blood-of-dracula-pico8-adventure)
+[Blood of Dracula](https://furilloproductions.itch.io/blood-of-dracula-pico8-adventure)
 
 License: unlicense
 
