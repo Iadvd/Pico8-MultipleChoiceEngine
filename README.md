@@ -10,7 +10,7 @@ License: unlicense
 Note: it is provided "as-is"... unfortunatly I do not have so much time for reviews or support, 
 I apologize beforehand. Please feel free to make your own versions of the engine.
 
-How to use it:
+# How to use it:
 
 1. Create a new Pico-8 empty project.
 
@@ -51,6 +51,6 @@ You can add as many music as Pico-8 let you depending on the memory left.
 Music is added using a $M musicidtag, where musicidtag is a number
 starting from 0 onwards... (same natural order than the added songs)
 
-Enjoy.
+I hope you enjoy it, cheers! :)
 
 
