@@ -58,11 +58,11 @@ E.g. in the sample game, if you go to the map screen, you will see the images wr
 
 This is a zoom out so you can see both files of images at the map screen:
 
-![d](https://raw.githubusercontent.com/Iadvd/Pico8-MultipleChoiceEngine/refs/heads/main/how-to5.png)
+![e](https://raw.githubusercontent.com/Iadvd/Pico8-MultipleChoiceEngine/refs/heads/main/how-to5.png)
 
 Zoom-in, basically we put the images inside the map, as if they were map tiles:
 
-![d](https://raw.githubusercontent.com/Iadvd/Pico8-MultipleChoiceEngine/refs/heads/main/how-to6.png)
+![f](https://raw.githubusercontent.com/Iadvd/Pico8-MultipleChoiceEngine/refs/heads/main/how-to6.png)
 
 This is important, because the engine will show the images as
 if they were a block from the map. You just need to make
@@ -71,6 +71,10 @@ the arrangement as explained above, the engine will do the rest.
 You can add as many music as Pico-8 let you depending on the memory left.
 Music is added using a $M musicidtag, where musicidtag is a number
 starting from 0 onwards... (same natural order than the added songs)
+
+E.g. this is the music of the sample game, only three songs, so I am using $M 0 or $M 1 or $M 2 in the sample game:
+
+![g](https://raw.githubusercontent.com/Iadvd/Pico8-MultipleChoiceEngine/refs/heads/main/how-to7.png)
 
 E.g. $M 0  will play the first music available at the music list of the project.
 
