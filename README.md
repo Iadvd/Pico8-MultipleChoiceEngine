@@ -56,7 +56,11 @@ see the map you will see all the images as if they were a map.
 
 E.g. in the sample game, if you go to the map screen, you will see the images written at the map, the first 8 ones in the left-top map position, the following 8 images just below them as follows:
 
+This is a zoom out so you can see both files of images at the map screen:
+
 ![d](https://raw.githubusercontent.com/Iadvd/Pico8-MultipleChoiceEngine/refs/heads/main/how-to5.png)
+
+Zoom-in, basically we put the images inside the map, as if they were map tiles:
 
 ![d](https://raw.githubusercontent.com/Iadvd/Pico8-MultipleChoiceEngine/refs/heads/main/how-to6.png)
 
