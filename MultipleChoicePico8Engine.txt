@@ -1,0 +1,837 @@
+-- === sample game ===
+-- https://furilloproductions.itch.io/blood-of-dracula-pico8-adventure
+
+mucho_compatible_text = [[
+$q menu
+$m 6
+$i 2
+$p ……………………………………………………………………
+$p furillo productions presents
+$p ……………………………………………………………………
+$p blood of dracula: escape from the crisom monastery.
+$p ……………………………………………………………………
+$p Awake, and choose wisely, oh lord of the night...
+$a crypts
+start your revenge!
+
+$q crypts
+$p You are in the Crimson Monastery crypts. Cold stones echo sacred chants. Silver crosses and host rain from above. A glowing altar flickers ahead.
+$i 1
+$a hideunderaltar
+hide under altar
+$a catchhost
+try to catch a host
+$a crawlbehindcrosses
+crawl behind crosses
+
+$q hideunderaltar
+$i 3
+$m 7
+$p you wait under the altar, but holy fire rains. the light consumes you. you were purified by divine wrath. your scream is lost beneath the choir's eternal chant.
+
+$q catchhost
+$i 4
+$p your hand burns on contact. a monk sees you and rings the bell. chants rise all around...the hunt has begun.
+$a attackmonk
+push past the monk
+$a runleft
+escape through side path
+$a crypts
+go back to crypts
+
+$q attackmonk
+$i 3
+$m 7
+$p you lunge at the monk. he strikes back with divine force. light pierces your chest. you fall, consumed by holy power.
+
+$q crawlbehindcrosses
+$i 4
+$p you crawl behind spinning crosses. a secret passage opens behind a statue. the stone saint weeps blood as the door creaks open.
+$a hallway
+enter the dark hallway
+$a wait
+wait quietly
+$a crypts
+return to crypts
+
+$q wait
+$i 4
+$p you wait in silence. the spinning crosses slow and the passage seals again. the air grows heavier, thick with old incense.
+$a crypts
+back to the crypts
+$a hideunderaltar
+try hiding again
+
+$q runleft
+$i 4
+$p a narrow, crumbling stair twists downward, swallowed by thick shadows. cold dampness clings to the air, whispering of forgotten secrets.
+$a rest
+stay hidden
+$a hallway
+descend the stairwell
+$a crypts
+return to crypts
+
+$q rest
+$i 3
+$m 7
+$p you hide in the shadows. a sacred whisper fills the air. a trap triggers under your feet. spikes pierce your body. you die in silence.
+
+$q hallway
+$i 5
+$p you enter a chamber lit in blue. Monsenor chants, protected by holy flames and silver relics. his eyes burn with fanatic fire, his voice echoing like thunder.
+$a rushaltar
+charge the altar
+$a openurn
+tip the old urn
+$a retreatm
+step back quietly
+
+$q retreatm
+$i 4
+$p you step back, but a monk notices and hurls a blessed chain at you. his eyes gleam with zealotry, and the chain crackles with holy energy as it flies through the air.
+$a crypts
+return to the crypts
+$a runleft
+dash into the stairwell
+
+$q rushaltar
+$i 3
+$m 7
+$p the relics shine violently. your skin blisters under sacred energy. you fell by monsenor ernesto's holy wrath.
+
+$q openurn
+$i 5
+$p ashes drift through the air, swirling softly as they extinguish the holy flames. monsenor's eyes widen in shock as his sacred protection fades.
+$a searchroom
+look around quickly
+$a escape
+slip through rear door
+$a faceernesto
+face Monsenor
+
+$q searchroom
+$i 4
+$p In a dusty journal bound in red leather, you read of Monsenor's torment: once a healer, turned zealot after losing his daughter to a vampire's bite. His fury is rooted in grief, not faith.
+$a openurn
+go back to the urn
+
+$q faceernesto
+$i 1
+$p you face monsenor directly. his chants falter as you strike. the sacred wards fail. he collapses. his final breath is a whisper of grief, not wrath.
+$a village
+head to the village
+
+$q escape
+$i 3
+$m 7
+$p as you flee through the door, a sudden light pierces your back. Monsenor's prayer strikes true. your ashes scatter in silence, and a final benediction echoes through the crypt.
+
+$q village
+$p misty streets. peasants whisper. garlic strands hang above doors. you smell fire and fear. something unseen watches from behind shuttered windows.
+$i 7
+$a tavern
+enter the tavern
+$a alley
+enter narrow alley
+
+$q alley
+$i 7
+$p a group of farmers approach with torches and blades. their faces are grim, hollowed by sleepless nights. one mutters a prayer as they advance.
+$a run
+run across the square
+$a hidebehindcart
+hide behind a cart
+$a village
+return to streets
+
+$q run
+$i 3
+$m 7
+$p you try to flee, but stumble on loose cobblestones. torches light your cloak. your end comes in fire and screams, as rough hands drag you back into the square.
+
+$q hidebehindcart
+$i 7
+$p a rope dangles from above. it leads to a broken window. faint voices echo from inside. the scent of smoke and sweat lingers in the air.
+$a attic
+climb through window
+
+$q attic
+$i 7
+$p the attic is all dust, old garlic and broken chairs. a glint catches your eye behind a chest. cobwebs sway gently, and something shifts in the shadows.
+$a hide
+stay hidden
+$a openchest moonblade=false set:moonblade
+check behind the chest
+$a village
+return to streets
+
+$q openchest
+$i 16
+$p under a velvet cloth, you find an obsidian dagger with a bronze edge. it pulses with a dark hum. a vampiric relic, forged in forgotten nights.
+$a attic
+observe the attic
+
+$q hide
+$i 1
+$p curled in darkness, you hear peasants shouting outside. one mutters nervously, "Nosferatu...". a figure enters, but doesn't see you and leaves.
+$a attic
+observe the attic
+$a village
+sneak back to street
+
+$q tavern
+$i 6
+$p The tavern stinks of stale ale and is filled with drunken peasants. At the far corner, a priest clutches silver beads, murmuring fervent prayers.
+$a sneakbehindbar
+hide behind bar
+$a eavesdrop set:knowhistory
+listen to priest
+$a towncenter knowhistory=true
+slip out to town square
+
+$q sneakbehindbar
+$i 7
+$p You duck under the bar. The floor is sticky with spilled ale. Nearby, a burly peasant mutters of dark forces rising and fears the 'shadow of Nosferatu'. No one notices you.
+$a tavern
+wait and observe
+$a village
+exit quietly
+
+$q eavesdrop
+$i 6
+$p Father Sandor whispers of holy vengeance. He fears the dark power rising, and calls the 'blade that ends all evil' the only hope to stop the vampire's reign. Plans for an ambush swirl in his desperate prayers.
+$a tavern
+observe the tavern
+
+$q towncenter
+$i 6
+$p Father Sandor blocks the road, his eyes burning with zeal. Behind him, swirling fire and sacred scripture twist in the air, a shield of wrath ready to strike.
+$a attack
+charge him directly
+$a speak
+speak to him calmly
+$a drawblade moonblade=true
+draw the moonblade
+
+$q drawblade
+$i 1
+$p the obsidian blade gleams with dark power. father sandor's eyes widen in shock and fear as your strike breaks through his defenses. his body crumples to the cobblestones, and dims into silence.
+$a forest
+escape into the forest
+
+$q attack
+$i 3
+$m 7
+$p He chants a fierce exorcism, his voice echoing through the square. Suddenly, a piercing light bursts through your chest. You are obliterated, your dark reign ended.
+
+$q speak
+$i 6
+$p He tries to stall with empty words, buying time. Then, with a sharp gesture, he summons more peasants to swarm you.
+$a village
+retreat into shadows
+
+$q forest
+$p wind rustles through twisted trees. silent shapes move between trunks. you see a strange oriental shrine. 
+$i 9
+$a climbtree
+climb a nearby tree
+$a cave
+enter mossy cave
+$a shrine
+approach the shrine
+
+$q shrine
+$i 16
+$p A small broken Buddha statue glows faintly, its surface cracked with age. Strange relics lie scattered around it, half-buried in moss and dust, whispering of forgotten rites.
+$a medallion not:hasmedallion set:hasmedallion
+observe the relics
+$a forest
+step away
+
+$q medallion
+$i 16
+$p you recognize one of the relics, an ancient vampire-shaped golden medallion. It once belonged to the Seven Golden Vampires, cursed warriors bound by dark ritual.
+$a shrine
+take the medallion
+
+$q climbtree
+$i 8
+$p Figures in flowing oriental robes stand below, moving in eerie unison. The Ching brothers, guardians of ancient arts, glance upward as one. Before you can move, silent darts cut through the air and pierce your chest.
+
+$q cave
+$i 8
+$p inside, the almighty seven kung fu warriors, the Ching brothers, meditate together. the elder, hsi ching, opens his eyes ready to fight.
+$a rushhim
+leap toward him
+$a winbattle hasmedallion=true
+use the medallion
+$a forest
+return to the forest
+
+$q rushhim
+$i 8
+$p he grabs your throat. in a final blow, you collapse. the seven brothers ended your journey. your form crumbles into ash upon the stone.
+
+$q winbattle
+$i 1
+$p You raise the medallion. The wrath of the Seven Golden Vampires engulfs the cave in blood. A crimson wind howls as ghostly fangs rip through the Ching brothers. Their screams echo, then vanish into silence.
+$a cemetery
+run towards the cemetery
+
+$Q cemetery
+$i 11
+$p tombstones lean as a wet fog creeps over the ground. in the graveyard, something watches. a voice calls you from the crypt ahead.
+$I 4
+$a callout
+Call out into the fog
+$a wolvestrail
+Follow the distant howls
+$a entercrypt
+Approach the crypt
+$a climbmausoleum
+Climb for a better view
+
+$Q callout
+$i 11
+$P Your voice is swallowed by the fog. The reply is not words, but a slow, rattling breath behind your neck. Something has heard you.
+$a cemetery
+Observe the cemetery
+
+$Q climbmausoleum
+$i 11
+$P From a rooftop, you glimpse claw marks on nearby graves... and a flash of something red gleaming near a sunken tomb.
+$a bloodaltar
+head towards the sunken tomb
+$a cemetery
+Jump back down
+
+$Q wolvestrail
+$i 11
+$P The howls guide you to a desolate area where broken coffins lie. Three werewolves emerge, their eyes glowing red. Valeria's protectors.
+$a fightwolves
+Stand your ground and fight
+$a retreat
+Escape through the fog
+
+$Q fightwolves
+$i 3
+$m 7
+$P You strike down the beasts, but not fast enough. One tears open your chest with a howl, and another crushes your throat. As a vampire, your flesh doesn't bleed, but crumbles. Your body collapses into ash.
+
+$Q retreat
+$i 11
+$P You flee back through the swirling mist, an icy dread gripping your hollow chest, while claws echo through the fog behind you.
+$a cemetery
+Return to the entrance
+
+$Q bloodaltar
+$i 16
+$P you find a forgotten altar, its stone etched with sigils of the old vampire cults. Scattered around it are remnants of ancient offerings: bones, wax seals, and rusted trinkets.
+$a getbloodtear not:hasbloodtear set:hasbloodtear
+Search the relics closely
+$a cemetery
+Head back into the fog
+
+$Q getbloodtear
+$i 16
+$P Among shattered relics lies a crimson ring. It pulses with hunger. You recognize it as the Bloodtear. As you touch it, it bites into your skin. The pact is sealed.
+$a cemetery
+Return to the entrance
+
+$Q entercrypt
+$i 10
+$P Inside the crypt, Valeria kneels among shattered bones. Her face is streaked with blood and tears. She looks up, her eyes glowing with sorrow and recognition.
+$a talk
+Ask what she wants
+$a offerring hasbloodtear=true
+Offer her the Bloodtear
+$a flee
+Back away slowly
+
+$Q offerring
+$i 10
+$P She sees the ring and gasps. 'You remember...' she whispers. Taking it in trembling hands, she weeps. 'Forgive me...'. Her body turns to dust as the curse breaks.
+$a castle
+Enter the castle
+
+$Q talk
+$i 3
+$m 7
+$P Her voice is kind, her gaze soft. But as you lean closer, her fangs pierce your throat. Valeria drains your blood with reverence. Your ancient soul scatters in the wind.
+
+$Q flee
+$i 10
+$P You step back. Her gaze follows you. She does not chase you... only watches, eyes glowing in the dark. The silence between you feels heavy, charged with unseen danger.
+$a cemetery
+Slip back into the cemetery
+
+$Q castle
+$P Dark towers claw the sky. Cold wind cuts through broken windows. You step into your ancestral home. A bat clings silently above.
+$i 13
+$a mainhall
+enter the grand hall
+$a upperstairs
+climb the upper stairs
+$a dungeonhall
+descend to the dungeons
+
+$Q mainhall
+$i 13
+$P Dust chokes the air inside a filthy corridor. Something stirs in the dark. An old chapel lies ahead. There is an entrace to the throne hall. 
+$a chapel
+enter the ruined chapel
+$a corridor
+go down the corridor
+$a thronehall
+enter the throne hall
+$a castle
+return to entrance
+
+$Q chapel
+$i 3
+$m 7
+$P you step into the old chapel. hidden relics react to your presence. a sudden flare of holy wrath consumes you, burning with relentless fury and scorching every shadow within.
+
+$Q corridor
+$i 13
+$P paintings of your past glory hang askew. one seems loose. cold air seeps from behind it. moonlight filters through a narrow balcony.
+$a balcony
+step onto the balcony
+$a hiddenchamber
+move the painting
+$a mainhall
+return to the main hall
+
+$Q hiddenchamber
+$i 13
+$P a crumbling crypt lies hidden behind the wall. an iron coffin rests beneath faded murals of devotion and blood. silence weighs heavy in the chamber.
+$a bridechamber3 hasblacksigil=true not:bride3 set:bride3
+break the holy seal
+$a corridor
+crawl back to the corridor
+
+$Q bridechamber3
+$i 14
+$P She lies in crystal. As the sigil shatters, she opens her eyes. 'So cold...until now'. A faint chill fills the air. She smiles, showing her fangs. You are reunited at last.
+$a corridor
+return to corridor
+
+$Q balcony
+$i 3
+$m 7
+$P A helper of Van Helsing spots you. He hurls a holy net. You can't escape and fall from the balcony. The net tightens around you. You crash onto the rocks below. Light tears you apart.
+
+$Q upperstairs
+$i 13
+$P The wooden stairs creak softly. Torn curtains flutter in the breeze. Inside a beautiful coffin, you hear faint murmurs and a soft, chilling laugh...
+$a servantroom
+search the servant's rooms
+$a bridechamber1 hasblacksigil=true not:bride1 set:bride1
+break the holy seal
+$a castle
+go back downstairs
+
+$Q bridechamber1
+$i 14
+$P Fragments of shattered glass lie scattered near her pale hand. She rises, eyes burning. 'You came...' Her voice drips hunger and love.
+$a upperstairs
+return to the corridor
+
+$Q servantroom
+$i 3
+$m 7
+$P Rotten food, broken beds. A holy trap glows in the dark. You step wrongly-blessed spikes shoot out! Sacred steel tears your chest. You collapse as your blood boils under holy light.
+
+$Q dungeonhall
+$i 13
+$P Damp and silent. The air reeks of rust and incense. A cold pulse vibrates in the walls. You sense magic sealed below.
+$a cryptpassage not:hasblacksigil
+enter narrow crypt passage
+$a torturechamber
+enter the torture chamber
+$a castle
+climb back up
+
+$Q cryptpassage
+$i 16
+$P A bloodstained sigil floats eerily in the heavy air. You feel its silent call drawing you closer. Beneath it lies the object of power, waiting to be claimed.
+$a getblacksigil not:hasblacksigil set:hasblacksigil
+grasp the Black Sigil
+$a dungeonhall
+step back
+
+$Q getblacksigil
+$i 16
+$P As you grasp it, shadows scream in fury. Your flesh burns fiercely, yet does not break. You now hold the key to unbinding sacred seals, a power ancient and terrible.
+$a dungeonhall
+return to hall
+
+$Q torturechamber
+$i 13
+$P Chains clink. Poignant oil still drips from old racks. A cold breath stirs the stagnant air while a whisper calls your name.
+$a bridechamber2 hasblacksigil=true not:bride2 set:bride2
+break the holy seal
+$a dungeonhall
+retreat into hallway
+
+$Q bridechamber2
+$i 14
+$P In a coffin of iron and velvet, she awakens. 'They caged me in light... but you found me'. Her nails click gently on your shoulder.
+$a dungeonhall
+leave the chamber
+
+$Q thronehall
+$i 12
+$P Van Helsing stands atop the black dais. His eyes burn with unwavering resolve, reflecting a mission older than time. Silence grips the hall, heavy with the weight of destiny...
+$a attackalone
+Face Van Helsing alone
+$a attacktogether bride1=true bride2=true bride3=true
+Strike with your brides
+$a mainhall
+Retreat
+
+$Q attacktogether
+$i 15
+$m 0
+$P The brides unleash their fury. You strike with ancient power. Van Helsing falls lifeless, defeated. You reclaim your throne. Congratulations, Lord of the Dark, you recovered your kingdom.
+
+$Q attackalone
+$i 12
+$m 7
+$P You charge with desperate fury. Van Helsing lifts his relic high. A blinding light pierces your heart. Your scream echoes through the shadows before silence swallows all. Your dark reign ends here.
+
+]]
+
+-- === functions ===
+
+function trim(s)
+  local i = 1
+  local j = #s
+  while i <= j and sub(s, i, i) == " " do
+    i += 1
+  end
+  while j >= i and sub(s, j, j) == " " do
+    j -= 1
+  end
+  return sub(s, i, j)
+end
+
+function split(s, sep)
+  local t = {}
+  if type(s) ~= "string" or type(sep) ~= "string" then return t end
+  local i = 1
+  local len = #s
+  while i <= len do
+    local j = i
+    while j <= len and sub(s, j, j) ~= sep do
+      j += 1
+    end
+    add(t, sub(s, i, j - 1))
+    i = j + 1
+  end
+  return t
+end
+
+-- function to split long text into lines that fit within a maximum width of characters
+
+function wrap_text(text, ancho_max)
+  local words = split(text, " ")
+  local lines = {}
+  local line = ""
+
+  for word in all(words) do
+    if #line + #word + 1 <= ancho_max then
+      if #line > 0 then
+        line = line .. " " .. word
+      else
+        line = word
+      end
+    else
+      add(lines, line)
+      line = word
+    end
+  end
+
+  if #line > 0 then
+    add(lines, line)
+  end
+
+  return lines
+end
+
+-- === parser mucho zx spectrum - compatible ===
+-- license: nolicense
+-- https://solhsa.com/mucho/mucho.html
+
+function parse_mucho(text)
+  local places = {}
+  local q_current = nil
+  local lines = split(text, "\n")
+
+  for i=1,#lines do
+    local line = trim(lines[i])
+    local prefix = sub(line, 1, 2)
+
+    if prefix == "$q" then
+      local id = trim(sub(line, 4))
+      q_current = id
+      places[id] = {
+        description = {},
+        options = {},
+        image = nil,
+		music = nil
+      }
+
+    elseif prefix == "$p" and q_current then
+      local p = trim(sub(line, 4))
+      add(places[q_current].description, p)
+
+				elseif prefix == "$a" and q_current then
+  				local remaining = trim(sub(line, 4))
+  				local parts = split(remaining, " ")
+  				local destination = parts[1]
+  				local conditions = {}
+				local set_flag = nil
+				
+				for j=2,#parts do
+				  local parte = parts[j]
+				  if sub(parte, -5) == "=true" then
+					local flag = sub(parte, 1, #parte - 5)
+					add(conditions, {flag=flag, cond=true})
+				  elseif sub(parte, -6) == "=false" then
+					local flag = sub(parte, 1, #parte - 6)
+					add(conditions, {flag=flag, cond=false})
+				  elseif sub(parte, 1, 4) == "not:" then
+					local flag = sub(parte, 5)
+					add(conditions, {flag=flag, cond=false})
+				  elseif sub(parte, 1, 4) == "set:" then
+					set_flag = sub(parte, 5)
+				  end
+				end
+
+  				local text = trim(lines[i+1] or "")
+				
+				add(places[q_current].options, {
+				  destination = destination,
+				  text = text,
+				  conditions = conditions,
+				  set_flag = set_flag
+				})
+				
+  				i += 1
+  
+    elseif prefix == "$i" and q_current then
+      places[q_current].image = trim(sub(line, 4)) + 0
+	  
+	elseif prefix == "$m" and q_current then
+      local mstr = trim(sub(line, 4))
+      local mid = tonum(mstr)
+      if mid ~= nil then
+        places[q_current].music = mid
+      end
+    end
+  end
+
+  return places
+end
+
+-- === engine ===
+
+game = {
+  places = {},
+  current = "",
+  flags = {},
+  text_pages = {},
+  page = 1,
+  showing_options = false,
+  selection = 1,
+  last_music = nil
+}
+
+function show_it_place(id)
+  local place = game.places[id]
+  if not place then
+    game.text_pages = {{"error: place no encontrado: "..id}}
+    return
+  end
+
+  game.current = id
+  game.page = 1
+  game.showing_options = false
+  game.selection = 1
+  game.text_pages = {}
+
+  -- If the room has a 'music' field defined, we play that music and save it as the last one.
+  -- If it doesn't have 'music', we do nothing: the last music that was playing remains active.
+  if place.music ~= nil then
+    -- We call the Pico-8 API to play music
+    music(place.music)
+    game.last_music = place.music
+  end
+  
+  local block = {}
+
+  -- Auto-flow using wrap_text to split each paragraph into short lines.
+  for l in all(place.description) do
+    local wrapped = wrap_text(l, 28) -- 28 chars max length
+    for e in all(wrapped) do
+      add(block, e)
+      if #block == 8 then
+        add(game.text_pages, block)
+        block = {}
+      end
+    end
+  end
+
+  if #block > 0 then
+    add(game.text_pages, block)
+  end
+end
+
+function _init()
+
+  -- SFX 62: small bip when cursor up or down
+  poke(0x3200 + 62*68 + 0, 48)  -- C3
+  poke(0x3200 + 62*68 + 1, 5)   -- volume
+  poke(0x3200 + 62*68 + 2, 4)   -- small length
+  for i=3,67 do
+    poke(0x3200 + 62*68 + i, 0)
+  end
+
+  -- SFX 63: small bip when selection is done (Z)
+  poke(0x3200 + 63*68 + 0, 60)  -- C4
+  poke(0x3200 + 63*68 + 1, 8)   -- volume
+  poke(0x3200 + 63*68 + 2, 6)   -- a little bit longer than SFX 62
+  for i=3,67 do
+    poke(0x3200 + 63*68 + i, 0)
+  end
+  
+  game.places = parse_mucho(mucho_compatible_text)
+  game.current = "menu"
+  game.last_music = nil
+  show_it_place(game.current)
+end
+
+function options_visibles()
+  local place = game.places[game.current]
+  local visibles = {}
+  for op in all(place.options) do
+    local show_it = true
+	
+	--[[
+    if op.flag then
+      if game.flags[op.flag] == nil then
+        game.flags[op.flag] = false
+      end
+      show_it = (game.flags[op.flag] == op.cond)
+    end
+	]]
+	
+	if op.conditions then
+      for cond in all(op.conditions) do
+        if game.flags[cond.flag] == nil then
+          game.flags[cond.flag] = false
+        end
+        if game.flags[cond.flag] ~= cond.cond then
+          show_it = false
+          break
+        end
+      end
+    end
+	
+    if show_it then add(visibles, op) end
+  end
+  return visibles
+end
+
+function _update()
+  if not game.showing_options then
+	if game.page >= #game.text_pages then
+		game.showing_options = true
+	else
+		if btnp(4) then
+		  sfx(63)
+		  game.page += 1
+		end
+	end
+  else
+    local options = options_visibles()
+
+    -- If there are no options (you're at an end $q node), allow restart with the button
+    if #options == 0 then
+	  print("🅾️ to start again...", 4, 122, 6)
+      if btnp(4) then
+		sfx(63)
+        game.flags = {}
+        show_it_place("menu")
+      end
+      return
+    end
+
+    -- navigation between options
+    -- if btnp(2) then game.selection -= 1 end
+    -- if btnp(3) then game.selection += 1 end
+	
+	if btnp(2) then
+     game.selection -= 1
+     sfx(62)  -- bip sound when up
+   end
+
+   if btnp(3) then
+     game.selection += 1
+     sfx(62)  -- bip sound when down
+   end
+
+    if game.selection < 1 then game.selection = #options end
+    if game.selection > #options then game.selection = 1 end
+
+    if btnp(4) then
+	  sfx(63)
+      local opcion = options[game.selection]
+      if opcion.set_flag then
+        game.flags[opcion.set_flag] = true
+      end
+
+      local destination = opcion.destination
+      if destination == "menu" then
+        game.flags = {}
+      end
+      show_it_place(destination)
+    end
+  end
+end
+
+function _draw()
+  cls()
+  local place = game.places[game.current]
+  if place.image then
+    local index = place.image
+    local x = ((index - 1) % 8) * 4
+    local y = flr((index - 1) / 8) * 4
+    map(x, y, 48, 1, 4, 4)
+  end
+
+  local y = 40
+  local page = game.text_pages[game.page]
+  for l in all(page) do
+    print(l, 4, y, 8)
+    y += 8
+  end
+
+  if game.showing_options then
+    y += 8
+    local options = options_visibles()
+    for i=1,#options do
+      local op = options[i]
+      local s = (i == game.selection and "> " or "  ")..op.text
+      print(s, 4, y, 2)
+      y += 8
+    end
+    if #options == 0 then
+	  	local text = "the end. 🅾️ to restart.   "
+		local x = 128 - (#text * 4)
+		print(text, x, 114, 1) 
+    end
+  end
+end
