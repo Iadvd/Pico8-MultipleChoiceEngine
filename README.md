@@ -51,6 +51,8 @@ You can add as many music as Pico-8 let you depending on the memory left.
 Music is added using a $M musicidtag, where musicidtag is a number
 starting from 0 onwards... (same natural order than the added songs)
 
+E.g. $M 0  will play the first music available at the music list of the project.
+
 I hope you enjoy it, cheers! :)
 
 
