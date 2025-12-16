@@ -10,7 +10,7 @@ License: unlicense
 Note: it is provided "as-is"... unfortunatly I do not have so much time for reviews or support, 
 I apologize beforehand. Please feel free to make your own versions of the engine.
 
-# Important!
+# Please note
 
 You need to know the basics about Pico-8 before using this engine. Starting from zero will be hard. 
 
